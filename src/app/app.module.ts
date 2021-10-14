@@ -8,8 +8,16 @@ import { TestModule } from './test/test.module';
 import { Test2Module } from './test/test2.module';
 import { Test3Module } from './test/test3.module';
 import { Test4Module } from './test/test4.module';
+import { NoteComponent } from './note/note.component';
+import { ToolsComponent } from './tools/tools.component';
+import {MatButtonModule } from '@angular/material/button';
+import { MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NoteComponent, ToolsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,7 +25,12 @@ import { Test4Module } from './test/test4.module';
     TestModule,
     Test2Module,
     Test3Module,
-    Test4Module
+    Test4Module,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
