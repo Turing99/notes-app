@@ -1,0 +1,10 @@
+<p [style.color]="titleColor">The title is {{ title }}</p>
+<p>Note content is: {{noteContent}} </p>
+<mat-form-field>
+  <input matInput placeholder="Type color"[(ngModel)]= "inputColor"/>
+</mat-form-field>
+
+<button mat-icon-button (click) = "ButtonClick(inputColor)">
+  <mat-icon>add</mat-icon>
+</button>
+
