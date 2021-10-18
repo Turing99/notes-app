@@ -6,39 +6,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tools.component.scss'],
 })
 export class ToolsComponent implements OnInit {
-  title: string = 'Something';
+  title: string = 'something';
   titleColor: string = 'red';
   noteContent: string = '';
   inputColor: string = '';
+  currentDate = Date.now();
+
+  array = new Array('Maria', 'Tom', 'Alex', 'Laur');
+
+  responseData = [
+    {
+      sent: '2019-11-10 12:00:00',
+    },
+    {
+      sent: '2020-10-30 08:00:00',
+    },
+    {
+      sent: '2021-12-30 10:00:00',
+    },
+  ];
+  calculateDiff(dateSent) {
+    let currentDate = new Date();
+    dateSent = new Date(dateSent);
+
+    return Math.floor(
+      (Date.UTC(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        currentDate.getDate()
+      ) -
+        Date.UTC(
+          dateSent.getFullYear(),
+          dateSent.getMonth(),
+          dateSent.getDate()
+        )) /
+        (1000 * 60 * 60 * 24)
+    );
+  }
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title = 'something else';
+    this.titleColor = ' green';
+  }
 
-  ButtonClick(colorText: string): void {
-    // this.title = 'Something else';
-    // this.titleColor = ' green';
-
-    //gresit:
-    // switch (colorText) {
-    //   case 'red': {
-    //     this.titleColor = 'red';
-    //     break;
-    //   }
-    //   case 'blue': {
-    //     this.titleColor = 'blue';
-    //     break;
-    //   }
-    //   case 'green': {
-    //     this.titleColor = 'green';
-    //     break;
-    //   }
-    //   default: {
-    //     this.titleColor = '';
-    //     break;
-    //   }
-    // }
-
+  buttonClick(colorText: string): void {
     this.titleColor = colorText;
   }
 }
