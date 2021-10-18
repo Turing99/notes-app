@@ -1,0 +1,15 @@
+.add-note-card {
+  max-width: 150px;
+  min-height: 150px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.dataHolder {
+  border: 1px solid #ccc;
+  margin: 15px 0px;
+  padding: 10px;
+}
