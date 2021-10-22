@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tools',
@@ -44,7 +45,7 @@ export class ToolsComponent implements OnInit {
     );
   }
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.title = 'something else';
@@ -53,5 +54,9 @@ export class ToolsComponent implements OnInit {
 
   buttonClick(colorText: string): void {
     this.titleColor = colorText;
+  }
+
+  addNote(): void{
+    this.router.navigateByUrl('addNote');
   }
 }

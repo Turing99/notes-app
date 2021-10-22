@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AddPipe implements PipeTransform {
   transform(value: number, addValue?: number): number {
-    isNaN(addValue);
     if (isNaN(addValue)) {
       return value;
     } else {
