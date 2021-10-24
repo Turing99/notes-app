@@ -6,7 +6,7 @@ export class FilterCategoriesServices {
   categories: Category[] = [
     {
       id: '1',
-      name: 'ToDO',
+      name: 'To DO',
     },
     {
       id: '2',

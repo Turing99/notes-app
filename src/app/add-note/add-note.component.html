@@ -5,41 +5,46 @@
       <br />
       <form>
         <br />
-        <label for="inputNote">Title:</label><br /><br />
+        <label for="noteName">Title:</label><br />
         <mat-form-field>
           <input
             matInput
-            name="inputNote"
+            name="noteName"
             placeholder="Introduce the title"
             required
-            minlength="7"
+            minlength="4"
             [(ngModel)]="title"
+            [ngModelOptions]="{standalone: true}"
           />
         </mat-form-field>
-
-        <label for="inputNote">Description:</label><br /><br />
+        <br />
+        <br />
+        <label for="noteDescription">Description:</label><br /><br />
         <mat-form-field>
           <textarea
             matInput
-            name="inputNote"
+            name="noteDescription"
             placeholder="enter a description"
             required
-            minlength="20"
+            minlength="10"
             [(ngModel)]="description"
+            [ngModelOptions]="{standalone: true}"
           ></textarea>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Choose the category:</mat-label>
-          <mat-select *ngIf="categories" [(ngModel)]="categoryId">
+          <mat-select name="Category" *ngIf="categories" [(ngModel)]="categoryId">
             <mat-option
               *ngFor="let category of categories"
               [value]="category.id"
-              >{{ category.name }}</mat-option
+              >{{ category.name| uppercase }}</mat-option
             >
           </mat-select>
         </mat-form-field>
-
+        <br />
+        <br />
+        <br />
         <button mat-button (click)="addNewNote()">Add</button>
       </form>
     </mat-card-content>

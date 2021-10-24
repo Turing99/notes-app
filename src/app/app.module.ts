@@ -21,6 +21,7 @@ import { NoteService } from './services/note.service';
 import { ShowParameterComponent } from './show-parameter/show-parameter.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FilterCategoriesServices } from './services/filter-categories.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FilterCategoriesServices } from './services/filter-categories.service';
     AddNoteComponent,
     HomeComponent,
     ShowParameterComponent,
+    SearchComponent,
   ],
   imports: [
   BrowserModule,

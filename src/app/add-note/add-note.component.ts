@@ -14,8 +14,7 @@ import { Note } from './../note/note';
 export class AddNoteComponent implements OnInit {
   title: string = '';
   description: string = '';
-  categoryId: string = '';
-  newId: string='';
+  categoryId: string;
   categories: Category[];
   notes: Note[];
 
@@ -30,7 +29,7 @@ export class AddNoteComponent implements OnInit {
      this.notes = this.noteService.getNotes();
      this.categories =this.filter_categories.getCategories();
   }
-  
+
   // ngOnInit(): void {
   //   this._activatedRoute.queryParams.subscribe((params) => {
   //     this.title = params['title'];
@@ -38,9 +37,10 @@ export class AddNoteComponent implements OnInit {
   //   });
   // }
 
-  addNewNote(): void
+  addNewNote()
   {
-     this.noteService.addNote(this.newId,this.title, this.description,this.categoryId);
+    console.log(this.categoryId);
+     this.noteService.addNote(this.title, this.description, this.categoryId);
     }
 
   }
