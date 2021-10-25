@@ -23,7 +23,7 @@ export class AddNoteComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private noteService: NoteService,
-    private filter_categories: FilterCategoriesServices,
+    private filterCategoriesService: FilterCategoriesServices,
   ) {}
 
   ngOnInit(): void{
