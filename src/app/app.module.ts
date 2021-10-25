@@ -15,6 +15,12 @@ import { AddPipe } from './add.pipe';
 import { FilterComponent } from './filter/filter.component';
 import { MatCardModule } from '@angular/material/card';
 import { HyphenPipe } from './hyphen.pipe';
+import { AddNoteComponent } from './add-note/add-note.component';
+import { HomeComponent } from './home/home.component';
+import { NoteService } from './services/note.service';
+import { ShowParameterComponent } from './show-parameter/show-parameter.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FilterCategoriesServices } from './services/filter-categories.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +30,12 @@ import { HyphenPipe } from './hyphen.pipe';
     AddPipe,
     FilterComponent,
     HyphenPipe,
+    AddNoteComponent,
+    HomeComponent,
+    ShowParameterComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -35,8 +44,9 @@ import { HyphenPipe } from './hyphen.pipe';
     MatFormFieldModule,
     FormsModule,
     MatCardModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [NoteService, FilterCategoriesServices],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
