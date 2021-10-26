@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   categoryId: string;
-  search_Title_Description: string;
+  searchTitleDescription: string;
 
   constructor() { }
 
