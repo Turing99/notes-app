@@ -22,6 +22,10 @@ import { ShowParameterComponent } from './show-parameter/show-parameter.componen
 import { MatSelectModule } from '@angular/material/select';
 import { FilterCategoriesServices } from './services/filter-categories.service';
 import { SearchComponent } from './search/search.component';
+import { HighlightDirective } from './highlight.directive';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpMockApiInterceptor } from './services/http-mock-api.interceptor';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,9 +39,10 @@ import { SearchComponent } from './search/search.component';
     HomeComponent,
     ShowParameterComponent,
     SearchComponent,
+    HighlightDirective,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -45,10 +50,17 @@ import { SearchComponent } from './search/search.component';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    CommonModule,
     MatCardModule,
     MatSelectModule,
+    HttpClientModule
   ],
-  providers: [NoteService, FilterCategoriesServices],
+  providers: [NoteService, FilterCategoriesServices, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpMockApiInterceptor,
+    multi: true
+  }
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

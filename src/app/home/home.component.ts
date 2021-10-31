@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   categoryId: string;
   searchTitleDescription: string;
+  color = '';
 
   constructor() { }
 
@@ -17,8 +18,8 @@ export class HomeComponent implements OnInit {
     this.categoryId = categId;
   }
 
-  receiveSearch(search_Title_Description: string) {
-    this.search_Title_Description = search_Title_Description;
+  receiveSearch(searchTitleDescription: string) {
+    this.searchTitleDescription = searchTitleDescription;
     this.categoryId = '';
   }
 }
