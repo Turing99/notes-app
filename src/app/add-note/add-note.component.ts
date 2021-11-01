@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FilterCategoriesService } from '../services/filter-categories.service';
 import { NoteService } from '../services/note.service';
-import { FilterCategoriesServices } from './../services/filter-categories.service';
 import { Category } from './../models/category';
 import { Note } from './../note/note';
 
@@ -23,7 +23,7 @@ export class AddNoteComponent implements OnInit {
     private router: Router,
     private _activatedRoute: ActivatedRoute,
     private noteService: NoteService,
-    private filterCategoriesService: FilterCategoriesServices,
+    private filterCategoriesService: FilterCategoriesService,
   ) {}
 
   ngOnInit(): void {

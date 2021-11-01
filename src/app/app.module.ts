@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { NoteService } from './services/note.service';
 import { ShowParameterComponent } from './show-parameter/show-parameter.component';
 import { MatSelectModule } from '@angular/material/select';
-import { FilterCategoriesServices } from './services/filter-categories.service';
+import { FilterCategoriesService} from './services/filter-categories.service';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -55,7 +55,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     HttpClientModule
   ],
-  providers: [NoteService, FilterCategoriesServices, {
+  providers: [NoteService, FilterCategoriesService, {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpMockApiInterceptor,
     multi: true
