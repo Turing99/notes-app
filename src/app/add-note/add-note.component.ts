@@ -23,12 +23,12 @@ export class AddNoteComponent implements OnInit {
     private router: Router,
     private _activatedRoute: ActivatedRoute,
     private noteService: NoteService,
-    private filter_categories: FilterCategoriesServices,
-  ) { }
+    private filterCategoriesService: FilterCategoriesServices,
+  ) {}
 
   ngOnInit(): void {
     //  this.notes = this.noteService.getNotes();
-    this.categories = this.filter_categories.getCategories();
+    this.categories = this.filterCategoriesService.getCategories();
   }
 
   // ngOnInit(): void {

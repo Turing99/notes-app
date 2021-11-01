@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Category } from '../models/category';
 
 @Injectable()
-export class FilterCategoriesServices {
+export class FilterCategoriesService {
   categories: Category[] = [
     {
       id: '1',
