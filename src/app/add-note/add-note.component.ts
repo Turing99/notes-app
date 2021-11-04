@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FilterCategoriesService } from '../services/filter-categories.service';
 import { NoteService } from '../services/note.service';
-import { FilterCategoriesServices } from './../services/filter-categories.service';
 import { Category } from './../models/category';
 import { Note } from './../note/note';
 
@@ -14,23 +14,23 @@ import { Note } from './../note/note';
 export class AddNoteComponent implements OnInit {
   title: string = '';
   description: string = '';
-  categoryId: string = '';
-  newId: string='';
+  categoryId: string;
   categories: Category[];
   notes: Note[];
 
 
   constructor(
+    private router: Router,
     private _activatedRoute: ActivatedRoute,
     private noteService: NoteService,
-    private filterCategoriesService: FilterCategoriesServices,
+    private filterCategoriesService: FilterCategoriesService,
   ) {}
 
-  ngOnInit(): void{
-     this.notes = this.noteService.getNotes();
-     this.categories =this.filter_categories.getCategories();
+  ngOnInit(): void {
+    //  this.notes = this.noteService.getNotes();
+    this.categories = this.filterCategoriesService.getCategories();
   }
-  
+
   // ngOnInit(): void {
   //   this._activatedRoute.queryParams.subscribe((params) => {
   //     this.title = params['title'];
@@ -38,9 +38,8 @@ export class AddNoteComponent implements OnInit {
   //   });
   // }
 
-  addNewNote(): void
-  {
-     this.noteService.addNote(this.newId,this.title, this.description,this.categoryId);
-    }
-
+  addNewNote() {
+    console.log(this.categoryId);
+    this.noteService.addNote(this.title, this.description, this.categoryId).subscribe(() => this.router.navigateByUrl(''));
   }
+}

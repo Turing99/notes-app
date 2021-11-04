@@ -20,7 +20,11 @@ import { HomeComponent } from './home/home.component';
 import { NoteService } from './services/note.service';
 import { ShowParameterComponent } from './show-parameter/show-parameter.component';
 import { MatSelectModule } from '@angular/material/select';
-import { FilterCategoriesServices } from './services/filter-categories.service';
+import { FilterCategoriesService} from './services/filter-categories.service';
+import { SearchComponent } from './search/search.component';
+import { HighlightDirective } from './highlight.directive';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,9 +37,11 @@ import { FilterCategoriesServices } from './services/filter-categories.service';
     AddNoteComponent,
     HomeComponent,
     ShowParameterComponent,
+    SearchComponent,
+    HighlightDirective,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -43,10 +49,13 @@ import { FilterCategoriesServices } from './services/filter-categories.service';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    CommonModule,
     MatCardModule,
     MatSelectModule,
+    HttpClientModule
   ],
-  providers: [NoteService, FilterCategoriesServices],
+  providers: [NoteService, FilterCategoriesService, 
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

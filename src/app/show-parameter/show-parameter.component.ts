@@ -8,16 +8,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ShowParameterComponent implements OnInit {
 
-  public parameterValue: string;
+  parameterValue: string;
 
-  constructor(private _router: Router, private _activatedRoute:ActivatedRoute) { }
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this._activatedRoute.params.subscribe(parameter =>{
+    this._activatedRoute.params.subscribe(parameter => {
       console.log(parameter);
       this.parameterValue = parameter.parameter;
     })
   }
-
 }

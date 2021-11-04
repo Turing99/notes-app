@@ -6,7 +6,7 @@ export class FilterCategoriesService {
   categories: Category[] = [
     {
       id: '1',
-      name: 'ToDO',
+      name: 'To DO',
     },
     {
       id: '2',
@@ -22,5 +22,4 @@ export class FilterCategoriesService {
   getCategories(): Category[] {
     return this.categories;
   }
-
 }

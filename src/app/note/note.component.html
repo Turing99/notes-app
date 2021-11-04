@@ -1,7 +1,7 @@
 <!-- <a [routerLink]="['/1', { parameter: 'test' }]">Test</a> -->
 <div class="note-container">
   <div class="card" *ngFor="let note of notes">
-    <mat-card class="note-card" (click)="showNote(note)">
+    <mat-card class="note-card">
       <mat-card-header class="card-header">
         {{ note.title }}
       </mat-card-header>
@@ -37,6 +37,7 @@
           <button
             mat-icon-button
             aria-label="Example icon button with a delete icon"
+            (click)="deleteNote(note.id)"
           >
             <mat-icon>delete</mat-icon>
           </button>
