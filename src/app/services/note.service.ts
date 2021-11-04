@@ -8,7 +8,7 @@ import { map } from "rxjs/operators"
 @Injectable()
 export class NoteService {
 
-  readonly baseUrl = "https://localhost:4200";
+  readonly baseUrl = "https://localhost:44391";
 
   readonly httpOptions = {
     headers: new HttpHeaders({
@@ -44,17 +44,17 @@ export class NoteService {
   //   console.log(this.notes);
   // }
 
-  addNote(noteTitle: string, noteDescription: string, noteCategoryId: string) {
+  addNote(noteTitle: string, noteDescription: string, noteCategoryId: string): Observable<Note[]> {
     let note = {
       description: noteDescription,
       title: noteTitle,
       categoryId: noteCategoryId
     }
-    return this.httpClient.post(this.baseUrl + "/note", note, this.httpOptions).subscribe();
+    return this.httpClient.post<Note[]>(this.baseUrl + "/notes", note);
   }
 
   deleteNote(id: string) {
-    return this.httpClient.delete(this.baseUrl + '/note/' + id).subscribe();
+    return this.httpClient.delete(this.baseUrl + '/notes/' + id);
   }
 
   getSearchedNotes(selectedInputSearch: string): Observable<Note[]> {

@@ -23,18 +23,13 @@ export class NoteComponent implements OnInit, OnChanges {
   constructor(private noteService: NoteService, private router: Router) { }
 
   ngOnInit(): void {
-    this.noteService.serviceCall();
     // this.notes = this.noteService.getNotes();
-
-    this.noteService.getNotes().subscribe((result) => {
-      this.notes = result;
-    })
+    this.getNotes();
   }
 
   ngOnChanges() {
     if (this.selectedCategoryId) {
       // this.notes = this.noteService.getFiltredNotes(this.selectedCategoryId);
-
       this.noteService.getFiltredNotes(this.selectedCategoryId).subscribe((result) => {
         this.notes = result;
       })
@@ -50,15 +45,18 @@ export class NoteComponent implements OnInit, OnChanges {
   }
 
   deleteNote(id: string) {
-    this.noteService.deleteNote(id);
+    this.noteService.deleteNote(id).subscribe(() => this.getNotes());
+  }
+
+  getNotes(){
     this.noteService.getNotes().subscribe((result) => {
       this.notes = result;
     })
   }
 
-  showNote(note: any) {
-    this.router.navigate(['addNote'], {
-      queryParams: { title: note.title, description: note.description },
-    });
-  }
+  // showNote(note: any) {
+  //   this.router.navigate(['addNote'], {
+  //     queryParams: { title: note.title, description: note.description },
+  //   });
+  // }
 }

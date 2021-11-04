@@ -24,7 +24,6 @@ import { FilterCategoriesService} from './services/filter-categories.service';
 import { SearchComponent } from './search/search.component';
 import { HighlightDirective } from './highlight.directive';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpMockApiInterceptor } from './services/http-mock-api.interceptor';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -55,11 +54,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     HttpClientModule
   ],
-  providers: [NoteService, FilterCategoriesService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpMockApiInterceptor,
-    multi: true
-  }
+  providers: [NoteService, FilterCategoriesService, 
   ],
   bootstrap: [AppComponent],
 })
